@@ -109,7 +109,8 @@ function App() {
             });
           }}
           type="number"
-          value={state.active ? state.depositValue : ""}
+          placeholder={state.active ? "0" : ""}
+          value={state.depositValue === 0 ? "" : state.depositValue}
         />
         <button
           onClick={() => dispatch({ type: REDUCER_ACTION.DEPOSIT })}
@@ -123,7 +124,8 @@ function App() {
           className="p-4 text-xl border-2 border-[#1c1c1c]"
           disabled={!state.active}
           type="number"
-          value={state.active ? state.withdrawValue : ""}
+          value={state.withdrawValue === 0 ? "" : state.withdrawValue}
+          placeholder={state.active ? "0" : ""}
           onChange={(e) => {
             if (e.target.value < 0) return;
             dispatch({
@@ -159,7 +161,8 @@ function App() {
           className="p-4 text-xl border-2 border-[#1c1c1c]"
           disabled={!state.active}
           type="number"
-          value={state.active ? state.loanValue : ""}
+          value={state.loanValue === 0 ? "" : state.loanValue}
+          placeholder={state.active ? "0" : ""}
           onChange={(e) => {
             if (Number(e.target.value < 0)) return;
             dispatch({
